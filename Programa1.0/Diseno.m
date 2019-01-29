@@ -1140,7 +1140,7 @@ function en_CreateFcn(hObject, eventdata, handles)
     
 function confirmar_Callback(hObject, eventdata, handles)
     global Zita wn ts mp n ValorZita Valorwn Valorn ValorSobre ValorEstablece Periodo G Polo Angulo Gz PeriodoOriginal PeriodoManueal
-    global AnguloOri PoloOri
+    global AnguloOri PoloOri PERIODOUSUARIO
     ValorZita=get(handles.z,'Value');
     Valorwn=get(handles.wn,'Value');
     ValorEstablece=get(handles.ts,'Value');
@@ -1305,7 +1305,14 @@ function confirmar_Callback(hObject, eventdata, handles)
     else
         msgbox('Seleccione almenos dos opciones.')
     end
+   
     PeriodoOriginal=Periodo;
+     if (PeriodoManueal)
+         disp("AJIACO")
+         Periodo=PERIODOUSUARIO;
+         set(handles.T,'String',Periodo);
+     end
+         
     PoloOri=Polo;
     AnguloOri=Angulo;
     Gz=c2d(G,Periodo);

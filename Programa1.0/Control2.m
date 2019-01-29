@@ -293,7 +293,7 @@ function checkbox1_Callback(hObject, eventdata, handles)
     
 function edit2_Callback(hObject, eventdata, handles)
     %MODIFICA EL PERIODO
-    global Periodo G Retardo Gz texto2 PeriodoManueal
+    global Periodo G Retardo Gz texto2 PeriodoManueal PERIODOUSUARIO
     PeriodoManueal=get(handles.checkbox1,'Value');
     
     if isempty(G)
@@ -311,7 +311,7 @@ function edit2_Callback(hObject, eventdata, handles)
         case 1
             set(handles.edit2, 'enable', 'on');
             Periodo=str2double(get(handles.edit2,'String'));
-            
+            PERIODOUSUARIO=Periodo;
         otherwise
             set(handles.axes3,'xgrid','on','ygrid','on')
             return;
